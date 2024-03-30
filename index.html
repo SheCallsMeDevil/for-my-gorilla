@@ -79,7 +79,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px;
+    width: 250px;
     margin: 0 auto; /* Center the dialogue box horizontally */
     text-align: center;
   }
@@ -131,7 +131,7 @@
 
   function showTextWithTypingEffect() {
     const textElement = document.querySelector('.text');
-    const text = 'Welcome To My World Stranger...😈';
+    const text = 'Welcome Stranger...😈';
     const delay = 50; // Adjust the delay between each character
     typeWriter(textElement, text, delay);
   }
@@ -157,6 +157,17 @@
     document.querySelector('.terminal').innerHTML = '';
   }
 
+  function promptForeName() {
+    const terminal = document.querySelector('.terminal');
+    terminal.innerHTML = `
+      <div class="dialogue-box">
+        <h2>Guess Your Name</h2>
+        <input type="text" id="username" placeholder="access only for you ❣️🦍" style="padding: 10px; margin-bottom: 10px; width: 80%; border-radius: 4px; border: 1px solid #33ff33; background-color: #333; color: #fff;">
+        <br>
+        <button onclick="submitName()" style="background-color: #007bff; color: #fff; border: none; border-radius: 4px; padding: 10px 20px; cursor: pointer; transition: background-color 0.3s;">Submit</button>
+      </div>
+    `;
+  }
   function promptForName() {
     const terminal = document.querySelector('.terminal');
     terminal.innerHTML = `
@@ -193,7 +204,7 @@
       <div class="dialogue-box">
         <h2>Devi Says 👿:</h2>
         <p class="text">This Is Especially Only For Her Who Calls Me "Devil"</p>
-        <button onclick="promptForName()">Retry</button>
+        <button onclick="promptForeName()">Retry</button>
       </div>
     `;
   }
@@ -202,7 +213,8 @@
     const terminal = document.querySelector('.terminal');
     terminal.innerHTML = `
       <div class="dialogue-box">
-        <h2>Are You Ready For The Surprise? 😈</h2>
+        <h2>Are You Ready For The Surprise?</h2>
+        <h3>😈</h3>
         <button onclick="showLove()">Yes</button>
         <button onclick="showRespect()">No</button>
       </div>
@@ -213,8 +225,10 @@
     const terminal = document.querySelector('.terminal');
     terminal.innerHTML = `
       <div class="dialogue-box">
-        <h2>Devil Says 😈:</h2>
-        <p>I love you</p>
+        <h2>Devil Says 😈</h2>
+        <p> कृषिउद्योगव्यापरसम्बन्ध 
+        नेपालको हिमाली प्रदेश पर्यटन विकाशको लागि उपयुक्त
+        गुणस्तरीय जीवन को परिचय आवश्यक तत्त्वहरू</p>
       </div>
     `;
   }
@@ -223,8 +237,8 @@
     const terminal = document.querySelector('.terminal');
     terminal.innerHTML = `
       <div class="dialogue-box">
-        <h2>Important Message</h2>
-        <p>I respect your choice</p>
+        <h2>Devil Says 😈</h2>
+        <p>I Respect Your Choice. Ok... Gud Luck, Dear.</p>
       </div>
     `;
   }
