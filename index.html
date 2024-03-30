@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hacker Theme</title>
+<style>
+  body {
+    background-color: #000;
+    color: #33ff33;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end),
+               blink-caret .75s step-end infinite;
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+  .terminal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #33ff33;
+    padding: 20px;
+    text-align: left;
+    width: 80%;
+    max-width: 600px;
+  }
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background-color: #33ff33;
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+  }
+  .progress-bar {
+    width: 100%;
+    background-color: #333;
+    height: 20px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .progress {
+    width: 0;
+    height: 100%;
+    background-color: #33ff33;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: progress-animation 3s forwards;
+  }
+  @keyframes progress-animation {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+  /* Styling for the dialogue box */
+  .dialogue-box {
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto; /* Center the dialogue box horizontally */
+    text-align: center;
+  }
+
+  .dialogue-box h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #33ff33; /* Change text color to green */
+  }
+
+  .dialogue-box p {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .dialogue-box button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .dialogue-box button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <p class="text"></p>
+  <div class="progress-bar">
+    <div class="progress"></div>
+  </div>
+</div>
+<script>
+  function typeWriter(element, text, delay) {
+    let index = 0;
+    const interval = setInterval(() => {
+      element.innerHTML += text.charAt(index);
+      index++;
+      if (index >= text.length) {
+        clearInterval(interval);
+      }
+    }, delay);
+  }
+
+  function showTextWithTypingEffect() {
+    const textElement = document.querySelector('.text');
+    const text = 'Welcome To My World Stranger...😈';
+    const delay = 50; // Adjust the delay between each character
+    typeWriter(textElement, text, delay);
+  }
+
+  function updateProgress() {
+    const progressElement = document.querySelector('.progress');
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.random() * 20;
+      if (progress >= 100) {
+        clearInterval(interval);
+        progress = 100;
+        setTimeout(() => {
+          clearScreen();
+          promptForName();
+        }, 5000); // Wait 1 second before clearing screen
+      }
+      progressElement.style.width = progress + '%';
+    }, 100); // Faster update interval (100ms)
+  }
+
+  function clearScreen() {
+    document.querySelector('.terminal').innerHTML = '';
+  }
+
+  function promptForName() {
+    const terminal = document.querySelector('.terminal');
+    terminal.innerHTML = `
+      <div class="dialogue-box">
+        <h2>Guess Your Name</h2>
+        <input type="text" id="username" placeholder="access only for you" style="padding: 10px; margin-bottom: 10px; width: 80%; border-radius: 4px; border: 1px solid #33ff33; background-color: #333; color: #fff;">
+        <br>
+        <button onclick="submitName()" style="background-color: #007bff; color: #fff; border: none; border-radius: 4px; padding: 10px 20px; cursor: pointer; transition: background-color 0.3s;">Submit</button>
+      </div>
+    `;
+  }
+
+  function submitName() {
+    const name = document.getElementById('username').value;
+    if (name && name.toLowerCase() === 'gorilla') {
+      const terminal = document.querySelector('.terminal');
+      terminal.innerHTML = `
+        <div class="dialogue-box">
+          <h2>Devil Says:</h2>
+          <p>Welcome Gorilla..... 😈</p>
+          
+          
+          <button onclick="showSurprise()">Next</button>
+        </div>
+      `;
+    } else {
+      showMessageAndRedirect();
+    }
+  }
+
+  function showMessageAndRedirect() {
+    const terminal = document.querySelector('.terminal');
+    terminal.innerHTML = `
+      <div class="dialogue-box">
+        <h2>Devi Says 👿:</h2>
+        <p class="text">This Is Especially Only For Her Who Calls Me "Devil"</p>
+        <button onclick="promptForName()">Retry</button>
+      </div>
+    `;
+  }
+
+  function showSurprise() {
+    const terminal = document.querySelector('.terminal');
+    terminal.innerHTML = `
+      <div class="dialogue-box">
+        <h2>Are You Ready For The Surprise? 😈</h2>
+        <button onclick="showLove()">Yes</button>
+        <button onclick="showRespect()">No</button>
+      </div>
+    `;
+  }
+
+  function showLove() {
+    const terminal = document.querySelector('.terminal');
+    terminal.innerHTML = `
+      <div class="dialogue-box">
+        <h2>Devil Says 😈:</h2>
+        <p>I love you</p>
+      </div>
+    `;
+  }
+
+  function showRespect() {
+    const terminal = document.querySelector('.terminal');
+    terminal.innerHTML = `
+      <div class="dialogue-box">
+        <h2>Important Message</h2>
+        <p>I respect your choice</p>
+      </div>
+    `;
+  }
+
+  showTextWithTypingEffect();
+  updateProgress();
+</script>
+</body>
+</html>
