@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hacker Theme</title>
 <style>
+  p {
+            text-align: justify;
+        }
+  
   body {
     background-color: #000;
     color: #33ff33;
@@ -73,6 +77,12 @@
     100% { width: 100%; }
   }
   /* Styling for the dialogue box */
+  .dialogue-box p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  max-height: 200px; /* Set maximum height for the scrollable area */
+  }
   .dialogue-box {
     background-color: #333;
     color: #fff;
@@ -147,7 +157,7 @@
         setTimeout(() => {
           clearScreen();
           promptForName();
-        }, 5000); // Wait 1 second before clearing screen
+        }, 1000); // Wait 1 second before clearing screen
       }
       progressElement.style.width = progress + '%';
     }, 100); // Faster update interval (100ms)
@@ -161,7 +171,7 @@
     const terminal = document.querySelector('.terminal');
     terminal.innerHTML = `
       <div class="dialogue-box">
-        <h2>Guess Your Name</h2>
+        <h2>Devil Wants To Know Your Name</h2>
         <input type="text" id="username" placeholder="access only for you ❣️🦍" style="padding: 10px; margin-bottom: 10px; width: 80%; border-radius: 4px; border: 1px solid #33ff33; background-color: #333; color: #fff;">
         <br>
         <button onclick="submitName()" style="background-color: #007bff; color: #fff; border: none; border-radius: 4px; padding: 10px 20px; cursor: pointer; transition: background-color 0.3s;">Submit</button>
@@ -172,7 +182,7 @@
     const terminal = document.querySelector('.terminal');
     terminal.innerHTML = `
       <div class="dialogue-box">
-        <h2>Guess Your Name</h2>
+        <h2>Devil Wants To Know Your Name</h2>
         <input type="text" id="username" placeholder="access only for you" style="padding: 10px; margin-bottom: 10px; width: 80%; border-radius: 4px; border: 1px solid #33ff33; background-color: #333; color: #fff;">
         <br>
         <button onclick="submitName()" style="background-color: #007bff; color: #fff; border: none; border-radius: 4px; padding: 10px 20px; cursor: pointer; transition: background-color 0.3s;">Submit</button>
@@ -213,7 +223,7 @@
     const terminal = document.querySelector('.terminal');
     terminal.innerHTML = `
       <div class="dialogue-box">
-        <h2>Are You Ready For The Surprise?</h2>
+        <h2>Do You Want To Read A Story?</h2>
         <h3>😈</h3>
         <button onclick="showLove()">Yes</button>
         <button onclick="showRespect()">No</button>
@@ -226,10 +236,85 @@
     terminal.innerHTML = `
       <div class="dialogue-box">
         <h2>Devil Says 😈</h2>
-        <p> Gud Luck.....Dear 😉</p>
+        <p>In the heart of the jungle, Chimpanzee and Gorilla sat under the shade of a tall tree, engaging in their usual curious conversations. 
+        <br>
+        <br>
+        "Hey, Gorilla, have you ever wondered how we can identify the sex of giraffes?" Chimpanzee asked, breaking the peaceful silence. Gorilla pondered for a moment. 
+        <br>
+        <br>
+        "Hmm, I'm not sure. Maybe by their size or horns? Chimpanzee chuckled. 
+        <br>
+        <br>
+        "Nope, it's actually by their ossicones. Males have thicker and more prominent ossicones than females." Gorilla's eyes widened with interest. 
+        <br>
+        <br>
+        "Oh, that's interesting! Hey, do you remember when did the crowd cheered and why?"
+        <br>
+        <br>
+        Chimpanzee shook his head. "No, I don't remember that." Gorilla continued, "And do you know why were her parents tearful?"
+        <br>
+        <br>
+        Chimpanzee scratched his head. "I'm sorry, I don't know about that either." 
+        <br>
+        <br>
+        As the conversation shifted, Gorilla asked, "Speaking of giraffes, what are their main predators?"
+        <br>
+        <br>
+        "Lions, hyenas, and crocodiles are their main predators," Chimpanzee replied, his voice full of knowledge. 
+        <br>
+        <br>
+        Curious, Gorilla inquired further, "How do giraffes defend themselves against these predators?" 
+        <br>
+        <br>
+        Chimpanzee explained, "They use their powerful kicks to fend off predators. Their long legs and strong hooves are quite effective."
+        <br>
+        <br>
+        "Fascinating!" Gorilla exclaimed. "When do giraffes become aggressive?" 
+        <br>
+        <br>
+        Chimpanzee replied, "Giraffes become aggressive when they feel threatened, especially during mating season or when protecting their young."
+        <br>
+        <br>
+        As the conversation came to an end, Gorilla asked, "By the way, how was the hall decorated?" 
+        <br>
+        <br>
+        Chimpanzee laughed tehn said, "Peerless... just like the beauty of beautiful usonflower." 
+        <br>
+        <br>
+        Gorilla smiled, feeling satisfied with the knowledge gained from their conversation and said, "Sounds lovely! Thanks for sharing, Chimpanzee."
+        <br>
+        <br>
+        <br>
+        <br>
+        Best wishes Dear Gorilla 
+        <br>
+        ^_^
+        <br>
+        <br>
+        <button onclick="promptForThanks()">You Can Thank Me Now</button> <button onclick="showRespect()">No</button></p>
       </div>
     `;
   }
+
+  function promptForThanks() {
+  const terminal = document.querySelector('.terminal');
+  terminal.innerHTML = `
+    <div class="dialogue-box">
+      <p>Wanna Say Something About Me.... 😈</p>
+      <p>Only Good Things Please Coz I Am Allergic To Bad Things.</p>
+      <form action="https://formspree.io/f/mayrpvgd" method="POST">
+        <label>
+          Your Message:
+          <textarea name="message" rows="6" cols="30"></textarea>
+        </label>
+        <div class="send-button-container">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  `;
+}
+
 
   function showRespect() {
     const terminal = document.querySelector('.terminal');
